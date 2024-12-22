@@ -1,0 +1,19 @@
+:root {
+	--document-bg-color: #3b3b3b;
+	--primary-bg-color: #535353;
+	--button-primary-bg-color: #646464;
+	--button-secondary-bg-color: #7d7d7d;
+	--button-accent-bg-color: #ff9f0a;
+	--font-color: #ffffff;
+	--shadow-color: #dbdbdb;
+}
+
+[data-theme="light"] {
+	--document-bg-color: #fffde4;
+	--primary-bg-color: #f0f4f5;
+	--button-primary-bg-color: #c2c4c4;
+	--button-secondary-bg-color: #dddddd;
+	--button-accent-bg-color: #ff9f0a;
+	--font-color: #3b3b3b;
+	--shadow-color: #d8d8d8;
+}
