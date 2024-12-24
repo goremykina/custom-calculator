@@ -5,7 +5,7 @@
 	padding: 0;
 
 	color: var(--font-color);
-	font-size: 35px;
+	font-size: 30px;
 	font-family: Arial, Helvetica, sans-serif;
 	transition:
 		background-color 0.4s ease-in-out,
@@ -25,7 +25,7 @@ header {
 .calculator-container {
 	display: flex;
 	flex-direction: column;
-	width: 350px;
+	width: 800px;
 	margin: auto;
 	background-color: var(--primary-bg-color);
 	border: 1px solid var(--primary-bg-color);
@@ -54,6 +54,36 @@ header {
 
 .compact {
 	font-size: 40px !important;
+}
+
+.btn-container {
+	display: flex;
+}
+
+.fraction {
+	display: inline-flex;
+	align-items: center;
+}
+
+button sup,
+sub {
+	font-size: 20px !important;
+}
+
+.sqrt {
+	display: inline-flex;
+	align-items: center;
+}
+
+.symbol {
+	font-size: 40px;
+}
+
+.value {
+	border-top: 3px solid;
+	margin-left: -3px;
+	/*padding-left: 5px;*/
+	margin-top: 1px;
 }
 
 .buttons {
