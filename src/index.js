@@ -1,2 +1,2 @@
 import "./styles/calculator.css";
-import "./js/calculator";
+import "./js/calculator-interface";

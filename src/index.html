@@ -74,13 +74,16 @@
 							<button class="btn bg-button" onclick="clearAll()">
 								2<sup>nd</sup>
 							</button>
-							<button class="btn bg-button" onclick="clearAll()">
+							<button class="btn bg-button" onclick="power(2)">
 								x<sup>2</sup>
 							</button>
-							<button class="btn bg-button" onclick="clearAll()">
+							<button class="btn bg-button" onclick="power(3)">
 								x<sup>3</sup>
 							</button>
-							<button class="btn bg-button" onclick="clearAll()">
+							<button
+								class="btn bg-button"
+								onclick="setOperator('^')"
+							>
 								x<sup>y</sup>
 							</button>
 							<button class="btn bg-button" onclick="clearAll()">
@@ -92,28 +95,40 @@
 						</div>
 
 						<div class="btn-wrapper">
-							<button class="btn bg-button" onclick="clearAll()">
+							<button
+								class="btn bg-button"
+								onclick="reciprocate()"
+							>
 								<span class="fraction">
 									<span><sup>1</sup></span>
 									<span>/</span>
 									<span><sub>x</sub></span>
 								</span>
 							</button>
-							<button class="btn bg-button" onclick="clearAll()">
+							<button
+								class="btn bg-button"
+								onclick="extractRoot(2)"
+							>
 								<span class="sqrt">
 									<span class="square"><sup>2</sup></span>
 									<span class="symbol">√</span>
 									<span class="value">x</span>
 								</span>
 							</button>
-							<button class="btn bg-button" onclick="clearAll()">
+							<button
+								class="btn bg-button"
+								onclick="extractRoot(3)"
+							>
 								<span class="sqrt">
 									<span class="square"><sup>3</sup></span>
 									<span class="symbol">√</span>
 									<span class="value">x</span>
 								</span>
 							</button>
-							<button class="btn bg-button" onclick="clearAll()">
+							<button
+								class="btn bg-button"
+								onclick="setOperator('sqrt')"
+							>
 								<span class="sqrt">
 									<span class="square"><sup>y</sup></span>
 									<span class="symbol">√</span>
@@ -186,7 +201,7 @@
 							</button>
 							<button
 								class="btn bg-button"
-								onclick="percentage()"
+								onclick="setOperator('%')"
 							>
 								%
 							</button>
