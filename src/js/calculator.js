@@ -86,6 +86,29 @@ export default class Calculator {
 		this.operator = "";
 	}
 
+	exponentiate(base) {
+		const currentValue = +this.currentValue;
+		this.currentValue = this.#power(base, currentValue).toString();
+	}
+
+	factorial() {
+		let currentValue = +this.currentValue;
+
+		if (currentValue > 150) {
+			throw new Error("The number is too big");
+		}
+
+		if (currentValue < 0) {
+			throw new Error("The number must be > 0");
+		}
+		let result = 1;
+		for (let i = 2; i <= currentValue; i++) {
+			result = result * i;
+		}
+
+		this.currentValue = result.toString();
+	}
+
 	#power(base, exponent) {
 		if (exponent === 0) {
 			return 1;

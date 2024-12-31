@@ -9,12 +9,14 @@ import {
 	ReciprocateCommand,
 } from "./commands";
 import SetOperatorCommand from "./commands/setOperatorCommand";
+import FactorialCommand from "./commands/factorialCommand";
+import DecimalExponentiationCommand from "./commands/decimalExponentiationCommand";
 
 const calculator = new Calculator();
 let currentEl = null;
 let expressionEl = null;
 const digits = new Set(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]);
-const operators = new Set(["-", "+", "*", "/", "%"]);
+const operators = new Set(["-", "+", "*", "/", "%", "^"]);
 const operatorMappings = {
 	"*": "×",
 	"/": "÷",
@@ -47,7 +49,7 @@ function invertCurrentOperand() {
 }
 
 function renderDisplay() {
-	if (calculator.currentValue.toString().length >= 10) {
+	if (calculator.currentValue.length >= 10) {
 		currentEl.classList.add("compact");
 	} else {
 		currentEl.classList.remove("compact");
@@ -85,6 +87,16 @@ function extractRoot(degree) {
 	executeAndRender(command);
 }
 
+function factorial() {
+	const command = new FactorialCommand(calculator);
+	executeAndRender(command);
+}
+
+function exponentiate(base) {
+	const command = new DecimalExponentiationCommand(calculator, base);
+	executeAndRender(command);
+}
+
 window.setOperator = setOperator;
 window.clearAll = clearAll;
 window.invertCurrentOperand = invertCurrentOperand;
@@ -93,6 +105,8 @@ window.calculate = calculate;
 window.power = power;
 window.reciprocate = reciprocate;
 window.extractRoot = extractRoot;
+window.factorial = factorial;
+window.exponentiate = exponentiate;
 
 document.addEventListener("DOMContentLoaded", () => {
 	currentEl = document.getElementById("current-operand-display");

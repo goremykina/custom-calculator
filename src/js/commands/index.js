@@ -10,6 +10,8 @@ import ClearCommand from "./clearCommand";
 import SetOperatorCommand from "./setOperatorCommand";
 import InvertCommand from "./invertCommand";
 import ExtractRootCommand from "./extractRootCommand";
+import FactorialCommand from "./factorialCommand";
+import DecimalExponentiationCommand from "./decimalExponentiationCommand";
 
 export {
 	AddCommand,
@@ -24,4 +26,6 @@ export {
 	SetOperatorCommand,
 	InvertCommand,
 	ExtractRootCommand,
+	FactorialCommand,
+	DecimalExponentiationCommand,
 };
