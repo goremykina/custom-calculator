@@ -110,6 +110,10 @@ export default class Calculator {
 
 	#intPower(base, exponent) {
 		let result = 1;
+		if (exponent < 0) {
+			base = 1 / base;
+		}
+
 		exponent = this.#abs(exponent);
 
 		for (let i = 0; i < exponent; ++i) {
