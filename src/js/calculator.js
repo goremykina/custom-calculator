@@ -13,6 +13,7 @@ export default class Calculator {
 		this.previousValue = 0;
 		this.currentValue = this.previousValue.toString();
 		this.operator = "";
+		this.memory = 0;
 	}
 
 	append(char) {
@@ -107,6 +108,22 @@ export default class Calculator {
 		}
 
 		this.currentValue = result.toString();
+	}
+
+	memoryAdd() {
+		this.memory += +this.currentValue;
+	}
+
+	memorySubtract() {
+		this.memory -= +this.currentValue;
+	}
+
+	memoryClear() {
+		this.memory = 0;
+	}
+
+	memoryRecall() {
+		this.currentValue = this.memory.toString();
 	}
 
 	#power(base, exponent) {

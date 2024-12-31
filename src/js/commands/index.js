@@ -12,6 +12,10 @@ import InvertCommand from "./invertCommand";
 import ExtractRootCommand from "./extractRootCommand";
 import FactorialCommand from "./factorialCommand";
 import DecimalExponentiationCommand from "./decimalExponentiationCommand";
+import MemoryAddCommand from "./memoryAddCommand";
+import MemorySubtractCommand from "./memorySubtractCommand";
+import MemoryRecallCommand from "./memoryRecallCommand";
+import MemoryClearCommand from "./memoryClearCommand";
 
 export {
 	AddCommand,
@@ -28,4 +32,8 @@ export {
 	ExtractRootCommand,
 	FactorialCommand,
 	DecimalExponentiationCommand,
+	MemoryAddCommand,
+	MemorySubtractCommand,
+	MemoryRecallCommand,
+	MemoryClearCommand,
 };

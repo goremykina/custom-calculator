@@ -7,10 +7,14 @@ import {
 	InvertCommand,
 	PowerCommand,
 	ReciprocateCommand,
+	MemoryAddCommand,
+	MemoryClearCommand,
+	MemoryRecallCommand,
+	MemorySubtractCommand,
+	SetOperatorCommand,
+	FactorialCommand,
+	DecimalExponentiationCommand,
 } from "./commands";
-import SetOperatorCommand from "./commands/setOperatorCommand";
-import FactorialCommand from "./commands/factorialCommand";
-import DecimalExponentiationCommand from "./commands/decimalExponentiationCommand";
 
 const calculator = new Calculator();
 let currentEl = null;
@@ -97,6 +101,26 @@ function exponentiate(base) {
 	executeAndRender(command);
 }
 
+function memoryClear() {
+	const command = new MemoryClearCommand(calculator);
+	executeAndRender(command);
+}
+
+function memoryRecall() {
+	const command = new MemoryRecallCommand(calculator);
+	executeAndRender(command);
+}
+
+function memoryAdd() {
+	const command = new MemoryAddCommand(calculator);
+	executeAndRender(command);
+}
+
+function memorySubtract() {
+	const command = new MemorySubtractCommand(calculator);
+	executeAndRender(command);
+}
+
 window.setOperator = setOperator;
 window.clearAll = clearAll;
 window.invertCurrentOperand = invertCurrentOperand;
@@ -107,6 +131,10 @@ window.reciprocate = reciprocate;
 window.extractRoot = extractRoot;
 window.factorial = factorial;
 window.exponentiate = exponentiate;
+window.memoryClear = memoryClear;
+window.memoryAdd = memoryAdd;
+window.memorySubtract = memorySubtract;
+window.memoryRecall = memoryRecall;
 
 document.addEventListener("DOMContentLoaded", () => {
 	currentEl = document.getElementById("current-operand-display");
