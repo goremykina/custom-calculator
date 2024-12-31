@@ -5,7 +5,6 @@ import DivideCommand from "./divideCommand";
 import AppendCommand from "./appendCommand";
 import PowerCommand from "./powerCommand";
 import ReciprocateCommand from "./reciprocateCommand";
-import SquareRootCommand from "./squareRootCommand";
 import CalculateCommand from "./calculateCommand";
 import ClearCommand from "./clearCommand";
 import SetOperatorCommand from "./setOperatorCommand";
@@ -20,7 +19,6 @@ export {
 	AppendCommand,
 	PowerCommand,
 	ReciprocateCommand,
-	SquareRootCommand,
 	CalculateCommand,
 	ClearCommand,
 	SetOperatorCommand,
