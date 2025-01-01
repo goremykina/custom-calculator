@@ -49,13 +49,7 @@
 
 				<div class="btn-container">
 					<div class="buttons">
-						<div class="btn-wrapper">
-							<button class="btn bg-button" onclick="clearAll()">
-								(
-							</button>
-							<button class="btn bg-button" onclick="clearAll()">
-								)
-							</button>
+						<div class="btn-wrapper grid-arrow">
 							<button
 								class="btn bg-button"
 								onclick="memoryClear()"
@@ -76,6 +70,23 @@
 								onclick="memoryRecall()"
 							>
 								mr
+							</button>
+							<button class="btn bg-button" onclick="undo()">
+								<svg
+									width="30px"
+									height="30px"
+									viewBox="0 0 24 24"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M20 12H4M4 12L10 18M4 12L10 6"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									/>
+								</svg>
 							</button>
 						</div>
 

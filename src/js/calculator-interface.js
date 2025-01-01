@@ -14,6 +14,7 @@ import {
 	SetOperatorCommand,
 	FactorialCommand,
 	DecimalExponentiationCommand,
+	UndoCommand,
 } from "./commands";
 
 const calculator = new Calculator();
@@ -121,6 +122,11 @@ function memorySubtract() {
 	executeAndRender(command);
 }
 
+function undo() {
+	const command = new UndoCommand(calculator);
+	executeAndRender(command);
+}
+
 window.setOperator = setOperator;
 window.clearAll = clearAll;
 window.invertCurrentOperand = invertCurrentOperand;
@@ -135,6 +141,7 @@ window.memoryClear = memoryClear;
 window.memoryAdd = memoryAdd;
 window.memorySubtract = memorySubtract;
 window.memoryRecall = memoryRecall;
+window.undo = undo;
 
 document.addEventListener("DOMContentLoaded", () => {
 	currentEl = document.getElementById("current-operand-display");

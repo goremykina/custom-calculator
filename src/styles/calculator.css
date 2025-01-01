@@ -91,6 +91,11 @@ sub {
 	height: 400px;
 }
 
+.grid-arrow {
+	display: grid !important;
+	grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+}
+
 .btn-wrapper {
 	height: 20%;
 	display: flex;

@@ -14,6 +14,7 @@ export default class Calculator {
 		this.currentValue = this.previousValue.toString();
 		this.operator = "";
 		this.memory = 0;
+		this.history = [];
 	}
 
 	append(char) {
@@ -56,6 +57,7 @@ export default class Calculator {
 
 		const currentOperand = +this.currentValue;
 		this.previousValue = action(this.previousValue, currentOperand);
+		this.history.push(this.previousValue);
 		this.currentValue = this.previousValue.toString();
 		this.operator = "";
 	}
@@ -85,6 +87,7 @@ export default class Calculator {
 		this.previousValue = 0;
 		this.currentValue = "0";
 		this.operator = "";
+		this.history = [];
 	}
 
 	exponentiate(base) {
@@ -124,6 +127,14 @@ export default class Calculator {
 
 	memoryRecall() {
 		this.currentValue = this.memory.toString();
+	}
+
+	undo() {
+		if (!this.history.length) {
+			return;
+		}
+
+		this.currentValue = this.history.pop();
 	}
 
 	#power(base, exponent) {

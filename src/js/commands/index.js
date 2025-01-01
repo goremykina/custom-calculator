@@ -16,6 +16,7 @@ import MemoryAddCommand from "./memoryAddCommand";
 import MemorySubtractCommand from "./memorySubtractCommand";
 import MemoryRecallCommand from "./memoryRecallCommand";
 import MemoryClearCommand from "./memoryClearCommand";
+import UndoCommand from "./undoCommand";
 
 export {
 	AddCommand,
@@ -36,4 +37,5 @@ export {
 	MemorySubtractCommand,
 	MemoryRecallCommand,
 	MemoryClearCommand,
+	UndoCommand,
 };
