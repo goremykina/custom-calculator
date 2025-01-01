@@ -3,7 +3,13 @@ export default class Calculator {
 		"+": (first, second) => first + second,
 		"-": (first, second) => first - second,
 		"*": (first, second) => first * second,
-		"/": (first, second) => first / second,
+		"/": (first, second) => {
+			if (second === 0) {
+				throw Error("You can not divide by 0");
+			}
+
+			return first / second;
+		},
 		"%": (first, second) => (first * second) / 100,
 		sqrt: (first, second) => this.#extractRoot(second, first),
 		"^": (first, second) => this.#power(first, second),
