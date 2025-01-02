@@ -201,7 +201,7 @@ export default class Calculator {
 		const TAYLOR_ITERATIONS = 50;
 
 		if (number <= 0) {
-			throw new Error("The number cannot be negative");
+			throw new Error("The number must be > 0");
 		}
 
 		let powerAdjust = 0;

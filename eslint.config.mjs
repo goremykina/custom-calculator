@@ -6,14 +6,17 @@ import prettierPlugin from "eslint-plugin-prettier/recommended";
 export default [
 	{
 		languageOptions: {
-			globals: globals.browser,
+			globals: {
+				...globals.browser,
+				...globals.jest,
+			},
 		},
 	},
 	pluginJs.configs.recommended,
 	eslintConfigPrettier,
 	prettierPlugin,
 	{
-		files: ["webpack.config.js"],
+		files: ["babel.config.js", "webpack.config.js"],
 		languageOptions: {
 			globals: globals.node,
 		},
