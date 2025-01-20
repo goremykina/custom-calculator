@@ -146,9 +146,10 @@ document.addEventListener("click", (event) => {
 		setOperator(operator);
 	}
 
-	if (target.classList.contains("power")) {
-		const value = target.dataset.value;
-		power(value);
+	const targetPower = event.target.closest(".power");
+	if (targetPower) {
+		const operator = targetPower.dataset.value;
+		power(operator);
 	}
 
 	if (target.classList.contains("calculate")) {

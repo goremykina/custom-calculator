@@ -14,13 +14,13 @@ export default class Calculator {
 		sqrt: (first, second) => this.#extractRoot(second, first),
 		"^": (first, second) => this.#power(first, second),
 	};
+	#history = [];
 
 	constructor() {
 		this.previousValue = 0;
 		this.currentValue = this.previousValue.toString();
 		this.operator = "";
 		this.memory = 0;
-		this.history = [];
 	}
 
 	append(char) {
@@ -31,6 +31,8 @@ export default class Calculator {
 		if (char === "." && this.currentValue.includes(".")) {
 			return;
 		}
+
+		this.#pushToHistory();
 
 		this.currentValue = this.currentValue + char;
 
@@ -43,6 +45,7 @@ export default class Calculator {
 		if (this.operator) {
 			this.calculate();
 		} else {
+			this.#pushToHistory();
 			this.previousValue = +this.currentValue;
 		}
 
@@ -61,30 +64,35 @@ export default class Calculator {
 			throw new Error("This action is not supported");
 		}
 
+		this.#pushToHistory();
+
 		const currentOperand = +this.currentValue;
 		this.previousValue = action(this.previousValue, currentOperand);
-		this.history.push(this.previousValue);
 		this.currentValue = this.previousValue.toString();
 		this.operator = "";
 	}
 
 	invert() {
+		this.#pushToHistory();
 		this.currentValue = this.currentValue.startsWith("-")
 			? this.currentValue.substring(1)
 			: `-${this.currentValue}`;
 	}
 
 	power(exponent) {
+		this.#pushToHistory();
 		const base = +this.currentValue;
 		this.currentValue = this.#power(base, exponent);
 	}
 
 	extractRoot(degree) {
+		this.#pushToHistory();
 		const base = +this.currentValue;
 		this.currentValue = this.#extractRoot(base, degree);
 	}
 
 	reciprocate() {
+		this.#pushToHistory();
 		const currentValue = +this.currentValue;
 		this.currentValue = this.#reciprocate(currentValue).toString();
 	}
@@ -93,15 +101,17 @@ export default class Calculator {
 		this.previousValue = 0;
 		this.currentValue = "0";
 		this.operator = "";
-		this.history = [];
+		this.#history = [];
 	}
 
 	exponentiate(base) {
+		this.#pushToHistory();
 		const currentValue = +this.currentValue;
 		this.currentValue = this.#power(base, currentValue).toString();
 	}
 
 	factorial() {
+		this.#pushToHistory();
 		let currentValue = +this.currentValue;
 
 		if (currentValue > 150) {
@@ -136,11 +146,14 @@ export default class Calculator {
 	}
 
 	undo() {
-		if (!this.history.length) {
+		if (!this.#history.length) {
 			return;
 		}
 
-		this.currentValue = this.history.pop();
+		const snapshot = this.#history.pop();
+		this.currentValue = snapshot.currentValue;
+		this.previousValue = snapshot.previousValue;
+		this.operator = snapshot.operator;
 	}
 
 	#power(base, exponent) {
@@ -260,5 +273,13 @@ export default class Calculator {
 
 	#sanitizeCurrentOperand() {
 		this.currentValue = (+this.currentValue).toString();
+	}
+
+	#pushToHistory() {
+		this.#history.push({
+			currentValue: this.currentValue,
+			previousValue: this.previousValue,
+			operator: this.operator,
+		});
 	}
 }
