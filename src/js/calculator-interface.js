@@ -127,26 +127,83 @@ function undo() {
 	executeAndRender(command);
 }
 
-window.setOperator = setOperator;
-window.clearAll = clearAll;
-window.invertCurrentOperand = invertCurrentOperand;
-window.append = append;
-window.calculate = calculate;
-window.power = power;
-window.reciprocate = reciprocate;
-window.extractRoot = extractRoot;
-window.factorial = factorial;
-window.exponentiate = exponentiate;
-window.memoryClear = memoryClear;
-window.memoryAdd = memoryAdd;
-window.memorySubtract = memorySubtract;
-window.memoryRecall = memoryRecall;
-window.undo = undo;
-
 document.addEventListener("DOMContentLoaded", () => {
 	currentEl = document.getElementById("current-operand-display");
 	expressionEl = document.getElementById("expression-display");
 	clearAll();
+});
+
+document.addEventListener("click", (event) => {
+	const target = event.target;
+	if (target.classList.contains("append")) {
+		const value = target.dataset.value;
+		append(value);
+	}
+
+	const targetOperator = event.target.closest(".setOperator");
+	if (targetOperator) {
+		const operator = targetOperator.dataset.value;
+		setOperator(operator);
+	}
+
+	if (target.classList.contains("power")) {
+		const value = target.dataset.value;
+		power(value);
+	}
+
+	if (target.classList.contains("calculate")) {
+		calculate();
+	}
+
+	if (target.classList.contains("memoryClear")) {
+		memoryClear();
+	}
+
+	if (target.classList.contains("memoryAdd")) {
+		memoryAdd();
+	}
+
+	if (target.classList.contains("memorySubtract")) {
+		memorySubtract();
+	}
+
+	if (target.classList.contains("memoryRecall")) {
+		memoryRecall();
+	}
+
+	if (target.classList.contains("undo")) {
+		undo();
+	}
+
+	if (target.classList.contains("clearAll")) {
+		clearAll();
+	}
+
+	const targetExtractRoot = event.target.closest(".extractRoot");
+	if (targetExtractRoot) {
+		const value = targetExtractRoot.dataset.value;
+		extractRoot(value);
+	}
+
+	const targetReciprocate = event.target.closest(".reciprocate");
+	if (targetReciprocate) {
+		const value = targetReciprocate.dataset.value;
+		reciprocate(value);
+	}
+
+	const targetExponentiate = event.target.closest(".exponentiate");
+	if (targetExponentiate) {
+		const value = targetExponentiate.dataset.value;
+		exponentiate(value);
+	}
+
+	if (target.classList.contains("factorial")) {
+		factorial();
+	}
+
+	if (target.classList.contains("invertCurrentOperand")) {
+		invertCurrentOperand();
+	}
 });
 
 document.addEventListener("keydown", (event) => {
